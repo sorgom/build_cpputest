@@ -34,16 +34,3 @@ for item in CppUTest CppUTestExt; do
     rm -f $target
     cp lib/lib$item.a $target
 done
-
-# if test ! -d $targetDir/include; then
-#     echo not a directory: $targetDir/include
-# fi
-# if test ! -d $targetDir/lib; then
-#     echo not a directory: $targetDir/lib
-# fi
-
-# for dir in CppUTest CppUTestExt; do
-#     echo rm -rf $targetDir/include/$dir
-# done
-# rm -rf $targetDir/include/CppUTest
-# rm -rf $targetDir/include/CppUTestExt
