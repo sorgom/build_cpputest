@@ -37,14 +37,14 @@ endef
 
 ifeq ($(config),release)
 OBJDIR = build/obj/release/release/CppUTest
-DEFINES += -DNDEBUG
+DEFINES += -DNDEBUG -DCPPUTEST_USE_LONG_LONG=0
 ALL_CFLAGS += $(CFLAGS) $(ALL_CPPFLAGS) -O2
 ALL_CXXFLAGS += $(CXXFLAGS) $(ALL_CPPFLAGS) -O2
 ALL_LDFLAGS += $(LDFLAGS) -s
 
 else ifeq ($(config),debug)
 OBJDIR = build/obj/debug/debug/CppUTest
-DEFINES += -DDEBUG
+DEFINES += -DDEBUG -DCPPUTEST_USE_LONG_LONG=0
 ALL_CFLAGS += $(CFLAGS) $(ALL_CPPFLAGS) -g
 ALL_CXXFLAGS += $(CXXFLAGS) $(ALL_CPPFLAGS) -g
 ALL_LDFLAGS += $(LDFLAGS)
