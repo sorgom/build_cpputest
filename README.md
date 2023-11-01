@@ -1,2 +1,2 @@
 # build_cpputest
-build CppUtest usinf premake5
+build CppUtest using premake5

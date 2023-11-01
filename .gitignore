@@ -33,5 +33,5 @@
 
 # premake5
 build
-*.make
-Makefile
+# *.make
+# Makefile
