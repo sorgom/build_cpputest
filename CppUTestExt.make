@@ -21,7 +21,7 @@ endif
 RESCOMP = windres
 TARGETDIR = lib
 TARGET = $(TARGETDIR)/libCppUTestExt.a
-INCLUDES += -Iinclude
+INCLUDES += -ICppUTest/include
 FORCE_INCLUDE +=
 ALL_CPPFLAGS += $(CPPFLAGS) -MD -MP $(DEFINES) $(INCLUDES)
 ALL_RESFLAGS += $(RESFLAGS) $(DEFINES) $(INCLUDES)
@@ -154,49 +154,49 @@ endif
 # File Rules
 # #############################################
 
-$(OBJDIR)/CodeMemoryReportFormatter.o: src/CppUTestExt/CodeMemoryReportFormatter.cpp
+$(OBJDIR)/CodeMemoryReportFormatter.o: CppUTest/src/CppUTestExt/CodeMemoryReportFormatter.cpp
 	@echo "$(notdir $<)"
 	$(SILENT) $(CXX) $(ALL_CXXFLAGS) $(FORCE_INCLUDE) -o "$@" -MF "$(@:%.o=%.d)" -c "$<"
-$(OBJDIR)/GTest.o: src/CppUTestExt/GTest.cpp
+$(OBJDIR)/GTest.o: CppUTest/src/CppUTestExt/GTest.cpp
 	@echo "$(notdir $<)"
 	$(SILENT) $(CXX) $(ALL_CXXFLAGS) $(FORCE_INCLUDE) -o "$@" -MF "$(@:%.o=%.d)" -c "$<"
-$(OBJDIR)/IEEE754ExceptionsPlugin.o: src/CppUTestExt/IEEE754ExceptionsPlugin.cpp
+$(OBJDIR)/IEEE754ExceptionsPlugin.o: CppUTest/src/CppUTestExt/IEEE754ExceptionsPlugin.cpp
 	@echo "$(notdir $<)"
 	$(SILENT) $(CXX) $(ALL_CXXFLAGS) $(FORCE_INCLUDE) -o "$@" -MF "$(@:%.o=%.d)" -c "$<"
-$(OBJDIR)/MemoryReportAllocator.o: src/CppUTestExt/MemoryReportAllocator.cpp
+$(OBJDIR)/MemoryReportAllocator.o: CppUTest/src/CppUTestExt/MemoryReportAllocator.cpp
 	@echo "$(notdir $<)"
 	$(SILENT) $(CXX) $(ALL_CXXFLAGS) $(FORCE_INCLUDE) -o "$@" -MF "$(@:%.o=%.d)" -c "$<"
-$(OBJDIR)/MemoryReportFormatter.o: src/CppUTestExt/MemoryReportFormatter.cpp
+$(OBJDIR)/MemoryReportFormatter.o: CppUTest/src/CppUTestExt/MemoryReportFormatter.cpp
 	@echo "$(notdir $<)"
 	$(SILENT) $(CXX) $(ALL_CXXFLAGS) $(FORCE_INCLUDE) -o "$@" -MF "$(@:%.o=%.d)" -c "$<"
-$(OBJDIR)/MemoryReporterPlugin.o: src/CppUTestExt/MemoryReporterPlugin.cpp
+$(OBJDIR)/MemoryReporterPlugin.o: CppUTest/src/CppUTestExt/MemoryReporterPlugin.cpp
 	@echo "$(notdir $<)"
 	$(SILENT) $(CXX) $(ALL_CXXFLAGS) $(FORCE_INCLUDE) -o "$@" -MF "$(@:%.o=%.d)" -c "$<"
-$(OBJDIR)/MockActualCall.o: src/CppUTestExt/MockActualCall.cpp
+$(OBJDIR)/MockActualCall.o: CppUTest/src/CppUTestExt/MockActualCall.cpp
 	@echo "$(notdir $<)"
 	$(SILENT) $(CXX) $(ALL_CXXFLAGS) $(FORCE_INCLUDE) -o "$@" -MF "$(@:%.o=%.d)" -c "$<"
-$(OBJDIR)/MockExpectedCall.o: src/CppUTestExt/MockExpectedCall.cpp
+$(OBJDIR)/MockExpectedCall.o: CppUTest/src/CppUTestExt/MockExpectedCall.cpp
 	@echo "$(notdir $<)"
 	$(SILENT) $(CXX) $(ALL_CXXFLAGS) $(FORCE_INCLUDE) -o "$@" -MF "$(@:%.o=%.d)" -c "$<"
-$(OBJDIR)/MockExpectedCallsList.o: src/CppUTestExt/MockExpectedCallsList.cpp
+$(OBJDIR)/MockExpectedCallsList.o: CppUTest/src/CppUTestExt/MockExpectedCallsList.cpp
 	@echo "$(notdir $<)"
 	$(SILENT) $(CXX) $(ALL_CXXFLAGS) $(FORCE_INCLUDE) -o "$@" -MF "$(@:%.o=%.d)" -c "$<"
-$(OBJDIR)/MockFailure.o: src/CppUTestExt/MockFailure.cpp
+$(OBJDIR)/MockFailure.o: CppUTest/src/CppUTestExt/MockFailure.cpp
 	@echo "$(notdir $<)"
 	$(SILENT) $(CXX) $(ALL_CXXFLAGS) $(FORCE_INCLUDE) -o "$@" -MF "$(@:%.o=%.d)" -c "$<"
-$(OBJDIR)/MockNamedValue.o: src/CppUTestExt/MockNamedValue.cpp
+$(OBJDIR)/MockNamedValue.o: CppUTest/src/CppUTestExt/MockNamedValue.cpp
 	@echo "$(notdir $<)"
 	$(SILENT) $(CXX) $(ALL_CXXFLAGS) $(FORCE_INCLUDE) -o "$@" -MF "$(@:%.o=%.d)" -c "$<"
-$(OBJDIR)/MockSupport.o: src/CppUTestExt/MockSupport.cpp
+$(OBJDIR)/MockSupport.o: CppUTest/src/CppUTestExt/MockSupport.cpp
 	@echo "$(notdir $<)"
 	$(SILENT) $(CXX) $(ALL_CXXFLAGS) $(FORCE_INCLUDE) -o "$@" -MF "$(@:%.o=%.d)" -c "$<"
-$(OBJDIR)/MockSupportPlugin.o: src/CppUTestExt/MockSupportPlugin.cpp
+$(OBJDIR)/MockSupportPlugin.o: CppUTest/src/CppUTestExt/MockSupportPlugin.cpp
 	@echo "$(notdir $<)"
 	$(SILENT) $(CXX) $(ALL_CXXFLAGS) $(FORCE_INCLUDE) -o "$@" -MF "$(@:%.o=%.d)" -c "$<"
-$(OBJDIR)/MockSupport_c.o: src/CppUTestExt/MockSupport_c.cpp
+$(OBJDIR)/MockSupport_c.o: CppUTest/src/CppUTestExt/MockSupport_c.cpp
 	@echo "$(notdir $<)"
 	$(SILENT) $(CXX) $(ALL_CXXFLAGS) $(FORCE_INCLUDE) -o "$@" -MF "$(@:%.o=%.d)" -c "$<"
-$(OBJDIR)/OrderedTest.o: src/CppUTestExt/OrderedTest.cpp
+$(OBJDIR)/OrderedTest.o: CppUTest/src/CppUTestExt/OrderedTest.cpp
 	@echo "$(notdir $<)"
 	$(SILENT) $(CXX) $(ALL_CXXFLAGS) $(FORCE_INCLUDE) -o "$@" -MF "$(@:%.o=%.d)" -c "$<"
 
