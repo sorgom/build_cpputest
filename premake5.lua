@@ -6,8 +6,10 @@ workspace 'build CppUTest'
     targetdir   'lib'
     objdir      'build/obj/%{cfg.buildcfg}'
 
+    CppUTestHome = 'CppUTest/'
+
     includedirs { 
-        'include',
+        CppUTestHome .. 'include',
     }
 
     filter 'configurations:debug'
@@ -22,8 +24,8 @@ workspace 'build CppUTest'
 project 'CppUTest'
 
     files { 
-        'src/CppUTest/*.cpp',
-        'src/Platforms/Gcc/*.cpp'
+        CppUTestHome .. 'src/CppUTest/*.cpp',
+        CppUTestHome .. 'src/Platforms/Gcc/*.cpp'
     }
 
 
@@ -31,5 +33,5 @@ project 'CppUTest'
 project 'CppUTestExt'
 
     files { 
-        'src/CppUTestExt/*.cpp',
+        CppUTestHome .. 'src/CppUTestExt/*.cpp',
     }

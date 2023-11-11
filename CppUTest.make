@@ -21,7 +21,7 @@ endif
 RESCOMP = windres
 TARGETDIR = lib
 TARGET = $(TARGETDIR)/libCppUTest.a
-INCLUDES += -Iinclude
+INCLUDES += -ICppUTest/include
 FORCE_INCLUDE +=
 ALL_CPPFLAGS += $(CPPFLAGS) -MD -MP $(DEFINES) $(INCLUDES)
 ALL_RESFLAGS += $(RESFLAGS) $(DEFINES) $(INCLUDES)
@@ -164,64 +164,64 @@ endif
 # File Rules
 # #############################################
 
-$(OBJDIR)/CommandLineArguments.o: src/CppUTest/CommandLineArguments.cpp
+$(OBJDIR)/CommandLineArguments.o: CppUTest/src/CppUTest/CommandLineArguments.cpp
 	@echo "$(notdir $<)"
 	$(SILENT) $(CXX) $(ALL_CXXFLAGS) $(FORCE_INCLUDE) -o "$@" -MF "$(@:%.o=%.d)" -c "$<"
-$(OBJDIR)/CommandLineTestRunner.o: src/CppUTest/CommandLineTestRunner.cpp
+$(OBJDIR)/CommandLineTestRunner.o: CppUTest/src/CppUTest/CommandLineTestRunner.cpp
 	@echo "$(notdir $<)"
 	$(SILENT) $(CXX) $(ALL_CXXFLAGS) $(FORCE_INCLUDE) -o "$@" -MF "$(@:%.o=%.d)" -c "$<"
-$(OBJDIR)/JUnitTestOutput.o: src/CppUTest/JUnitTestOutput.cpp
+$(OBJDIR)/JUnitTestOutput.o: CppUTest/src/CppUTest/JUnitTestOutput.cpp
 	@echo "$(notdir $<)"
 	$(SILENT) $(CXX) $(ALL_CXXFLAGS) $(FORCE_INCLUDE) -o "$@" -MF "$(@:%.o=%.d)" -c "$<"
-$(OBJDIR)/MemoryLeakDetector.o: src/CppUTest/MemoryLeakDetector.cpp
+$(OBJDIR)/MemoryLeakDetector.o: CppUTest/src/CppUTest/MemoryLeakDetector.cpp
 	@echo "$(notdir $<)"
 	$(SILENT) $(CXX) $(ALL_CXXFLAGS) $(FORCE_INCLUDE) -o "$@" -MF "$(@:%.o=%.d)" -c "$<"
-$(OBJDIR)/MemoryLeakWarningPlugin.o: src/CppUTest/MemoryLeakWarningPlugin.cpp
+$(OBJDIR)/MemoryLeakWarningPlugin.o: CppUTest/src/CppUTest/MemoryLeakWarningPlugin.cpp
 	@echo "$(notdir $<)"
 	$(SILENT) $(CXX) $(ALL_CXXFLAGS) $(FORCE_INCLUDE) -o "$@" -MF "$(@:%.o=%.d)" -c "$<"
-$(OBJDIR)/SimpleMutex.o: src/CppUTest/SimpleMutex.cpp
+$(OBJDIR)/SimpleMutex.o: CppUTest/src/CppUTest/SimpleMutex.cpp
 	@echo "$(notdir $<)"
 	$(SILENT) $(CXX) $(ALL_CXXFLAGS) $(FORCE_INCLUDE) -o "$@" -MF "$(@:%.o=%.d)" -c "$<"
-$(OBJDIR)/SimpleString.o: src/CppUTest/SimpleString.cpp
+$(OBJDIR)/SimpleString.o: CppUTest/src/CppUTest/SimpleString.cpp
 	@echo "$(notdir $<)"
 	$(SILENT) $(CXX) $(ALL_CXXFLAGS) $(FORCE_INCLUDE) -o "$@" -MF "$(@:%.o=%.d)" -c "$<"
-$(OBJDIR)/SimpleStringInternalCache.o: src/CppUTest/SimpleStringInternalCache.cpp
+$(OBJDIR)/SimpleStringInternalCache.o: CppUTest/src/CppUTest/SimpleStringInternalCache.cpp
 	@echo "$(notdir $<)"
 	$(SILENT) $(CXX) $(ALL_CXXFLAGS) $(FORCE_INCLUDE) -o "$@" -MF "$(@:%.o=%.d)" -c "$<"
-$(OBJDIR)/TeamCityTestOutput.o: src/CppUTest/TeamCityTestOutput.cpp
+$(OBJDIR)/TeamCityTestOutput.o: CppUTest/src/CppUTest/TeamCityTestOutput.cpp
 	@echo "$(notdir $<)"
 	$(SILENT) $(CXX) $(ALL_CXXFLAGS) $(FORCE_INCLUDE) -o "$@" -MF "$(@:%.o=%.d)" -c "$<"
-$(OBJDIR)/TestFailure.o: src/CppUTest/TestFailure.cpp
+$(OBJDIR)/TestFailure.o: CppUTest/src/CppUTest/TestFailure.cpp
 	@echo "$(notdir $<)"
 	$(SILENT) $(CXX) $(ALL_CXXFLAGS) $(FORCE_INCLUDE) -o "$@" -MF "$(@:%.o=%.d)" -c "$<"
-$(OBJDIR)/TestFilter.o: src/CppUTest/TestFilter.cpp
+$(OBJDIR)/TestFilter.o: CppUTest/src/CppUTest/TestFilter.cpp
 	@echo "$(notdir $<)"
 	$(SILENT) $(CXX) $(ALL_CXXFLAGS) $(FORCE_INCLUDE) -o "$@" -MF "$(@:%.o=%.d)" -c "$<"
-$(OBJDIR)/TestHarness_c.o: src/CppUTest/TestHarness_c.cpp
+$(OBJDIR)/TestHarness_c.o: CppUTest/src/CppUTest/TestHarness_c.cpp
 	@echo "$(notdir $<)"
 	$(SILENT) $(CXX) $(ALL_CXXFLAGS) $(FORCE_INCLUDE) -o "$@" -MF "$(@:%.o=%.d)" -c "$<"
-$(OBJDIR)/TestMemoryAllocator.o: src/CppUTest/TestMemoryAllocator.cpp
+$(OBJDIR)/TestMemoryAllocator.o: CppUTest/src/CppUTest/TestMemoryAllocator.cpp
 	@echo "$(notdir $<)"
 	$(SILENT) $(CXX) $(ALL_CXXFLAGS) $(FORCE_INCLUDE) -o "$@" -MF "$(@:%.o=%.d)" -c "$<"
-$(OBJDIR)/TestOutput.o: src/CppUTest/TestOutput.cpp
+$(OBJDIR)/TestOutput.o: CppUTest/src/CppUTest/TestOutput.cpp
 	@echo "$(notdir $<)"
 	$(SILENT) $(CXX) $(ALL_CXXFLAGS) $(FORCE_INCLUDE) -o "$@" -MF "$(@:%.o=%.d)" -c "$<"
-$(OBJDIR)/TestPlugin.o: src/CppUTest/TestPlugin.cpp
+$(OBJDIR)/TestPlugin.o: CppUTest/src/CppUTest/TestPlugin.cpp
 	@echo "$(notdir $<)"
 	$(SILENT) $(CXX) $(ALL_CXXFLAGS) $(FORCE_INCLUDE) -o "$@" -MF "$(@:%.o=%.d)" -c "$<"
-$(OBJDIR)/TestRegistry.o: src/CppUTest/TestRegistry.cpp
+$(OBJDIR)/TestRegistry.o: CppUTest/src/CppUTest/TestRegistry.cpp
 	@echo "$(notdir $<)"
 	$(SILENT) $(CXX) $(ALL_CXXFLAGS) $(FORCE_INCLUDE) -o "$@" -MF "$(@:%.o=%.d)" -c "$<"
-$(OBJDIR)/TestResult.o: src/CppUTest/TestResult.cpp
+$(OBJDIR)/TestResult.o: CppUTest/src/CppUTest/TestResult.cpp
 	@echo "$(notdir $<)"
 	$(SILENT) $(CXX) $(ALL_CXXFLAGS) $(FORCE_INCLUDE) -o "$@" -MF "$(@:%.o=%.d)" -c "$<"
-$(OBJDIR)/TestTestingFixture.o: src/CppUTest/TestTestingFixture.cpp
+$(OBJDIR)/TestTestingFixture.o: CppUTest/src/CppUTest/TestTestingFixture.cpp
 	@echo "$(notdir $<)"
 	$(SILENT) $(CXX) $(ALL_CXXFLAGS) $(FORCE_INCLUDE) -o "$@" -MF "$(@:%.o=%.d)" -c "$<"
-$(OBJDIR)/Utest.o: src/CppUTest/Utest.cpp
+$(OBJDIR)/Utest.o: CppUTest/src/CppUTest/Utest.cpp
 	@echo "$(notdir $<)"
 	$(SILENT) $(CXX) $(ALL_CXXFLAGS) $(FORCE_INCLUDE) -o "$@" -MF "$(@:%.o=%.d)" -c "$<"
-$(OBJDIR)/UtestPlatform.o: src/Platforms/Gcc/UtestPlatform.cpp
+$(OBJDIR)/UtestPlatform.o: CppUTest/src/Platforms/Gcc/UtestPlatform.cpp
 	@echo "$(notdir $<)"
 	$(SILENT) $(CXX) $(ALL_CXXFLAGS) $(FORCE_INCLUDE) -o "$@" -MF "$(@:%.o=%.d)" -c "$<"
 
