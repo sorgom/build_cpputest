@@ -1,4 +1,4 @@
-workspace 'build CppUTest'
+workspace 'build_CppUTest'
     configurations { 'release', 'debug' }
 
     kind        'StaticLib'
@@ -20,16 +20,23 @@ workspace 'build CppUTest'
         defines { 'NDEBUG', 'CPPUTEST_USE_LONG_LONG=0' }
         optimize 'On'
 
--- libCppUTest.a 
+-- libCppUTest.a / CppUTest.lib
 project 'CppUTest'
 
-    files { 
-        CppUTestHome .. 'src/CppUTest/*.cpp',
-        CppUTestHome .. 'src/Platforms/Gcc/*.cpp'
-    }
+    filter { 'action:gmake2' }
+        files { 
+            CppUTestHome .. 'src/CppUTest/*.cpp',
+            CppUTestHome .. 'src/Platforms/Gcc/*.cpp'
+        }
+
+    filter { 'action:vs*' }
+        files { 
+            CppUTestHome .. 'src/CppUTest/*.cpp',
+            CppUTestHome .. 'src/Platforms/VisualCpp/*.cpp'
+        }
 
 
--- libCppUTestExt.a 
+-- libCppUTestExt.a / CppUTestExt.lib
 project 'CppUTestExt'
 
     files { 

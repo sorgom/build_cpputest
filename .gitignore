@@ -33,5 +33,11 @@
 
 # premake5
 build
-# *.make
-# Makefile
+*.vcxproj
+*.vcxproj.*
+*.sln
+*.idb
+*.pdb
+*.lib
+.vs
+
