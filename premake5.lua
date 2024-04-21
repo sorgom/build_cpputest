@@ -6,10 +6,10 @@ workspace 'build_CppUTest'
     targetdir   'lib'
     objdir      'build/obj/%{cfg.buildcfg}'
 
-    CppUTestHome = 'CppUTest/'
+    CppUTestHome = 'cpputest'
 
     includedirs { 
-        CppUTestHome .. 'include',
+        CppUTestHome .. '/include',
     }
 
     filter 'configurations:debug'
@@ -20,25 +20,24 @@ workspace 'build_CppUTest'
         defines { 'NDEBUG', 'CPPUTEST_USE_LONG_LONG=0' }
         optimize 'On'
 
--- libCppUTest.a / CppUTest.lib
-project 'CppUTest'
-
-    filter { 'action:gmake2' }
-        files { 
-            CppUTestHome .. 'src/CppUTest/*.cpp',
-            CppUTestHome .. 'src/Platforms/Gcc/*.cpp'
-        }
+    filter { 'action:gmake*' }
+        buildoptions { '-pedantic-errors -Werror' }
 
     filter { 'action:vs*' }
-        files { 
-            CppUTestHome .. 'src/CppUTest/*.cpp',
-            CppUTestHome .. 'src/Platforms/VisualCpp/*.cpp'
-        }
+        buildoptions { '/W3 /MP' }
+
+    -- libCppUTest.a / CppUTest.lib
+    project 'CppUTest'
+
+        files { CppUTestHome .. '/src/CppUTest/*.cpp'}
+        
+        filter { 'action:gmake*' }
+            files { CppUTestHome .. '/src/Platforms/Gcc/*.cpp' }
+
+        filter { 'action:vs*' }
+            files {CppUTestHome .. '/src/Platforms/VisualCpp/*.cpp' }
 
 
--- libCppUTestExt.a / CppUTestExt.lib
-project 'CppUTestExt'
-
-    files { 
-        CppUTestHome .. 'src/CppUTestExt/*.cpp',
-    }
+    -- libCppUTestExt.a / CppUTestExt.lib
+    project 'CppUTestExt'
+        files { CppUTestHome .. '/src/CppUTestExt/*.cpp'}

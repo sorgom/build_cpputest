@@ -1,4 +1,4 @@
-# Build CppUtest
-- build CppUtest using premake5
-- libraries are stored in repository to save github CI time
-
+# using premake5 to build CppUtest libraries
+creates
+-   Makefile for gcc
+-   solution and project files for VS
