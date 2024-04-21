@@ -20,26 +20,24 @@ workspace 'build_CppUTest'
         defines { 'NDEBUG', 'CPPUTEST_USE_LONG_LONG=0' }
         optimize 'On'
 
+    filter { 'action:gmake*' }
+        buildoptions { '-pedantic-errors -Werror' }
+
+    filter { 'action:vs*' }
+        buildoptions { '/W3 /MP' }
+
     -- libCppUTest.a / CppUTest.lib
     project 'CppUTest'
 
-        files { 
-            CppUTestHome .. '/src/CppUTest/*.cpp',
-        }
-        filter { 'action:gmake2' }
-            files { 
-                CppUTestHome .. '/src/Platforms/Gcc/*.cpp'
-            }
+        files { CppUTestHome .. '/src/CppUTest/*.cpp'}
+        
+        filter { 'action:gmake*' }
+            files { CppUTestHome .. '/src/Platforms/Gcc/*.cpp' }
 
         filter { 'action:vs*' }
-            files { 
-                CppUTestHome .. '/src/Platforms/VisualCpp/*.cpp'
-            }
+            files {CppUTestHome .. '/src/Platforms/VisualCpp/*.cpp' }
 
 
     -- libCppUTestExt.a / CppUTestExt.lib
     project 'CppUTestExt'
-
-        files { 
-            CppUTestHome .. '/src/CppUTestExt/*.cpp',
-        }
+        files { CppUTestHome .. '/src/CppUTestExt/*.cpp'}

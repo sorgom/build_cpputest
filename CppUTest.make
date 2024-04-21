@@ -21,7 +21,7 @@ endif
 RESCOMP = windres
 TARGETDIR = lib
 TARGET = $(TARGETDIR)/libCppUTest.a
-INCLUDES += -ICppUTest/include
+INCLUDES += -Icpputest/include
 FORCE_INCLUDE +=
 ALL_CPPFLAGS += $(CPPFLAGS) -MD -MP $(DEFINES) $(INCLUDES)
 ALL_RESFLAGS += $(RESFLAGS) $(DEFINES) $(INCLUDES)
@@ -38,15 +38,15 @@ endef
 ifeq ($(config),release)
 OBJDIR = build/obj/release/release/CppUTest
 DEFINES += -DNDEBUG -DCPPUTEST_USE_LONG_LONG=0
-ALL_CFLAGS += $(CFLAGS) $(ALL_CPPFLAGS) -O2
-ALL_CXXFLAGS += $(CXXFLAGS) $(ALL_CPPFLAGS) -O2
+ALL_CFLAGS += $(CFLAGS) $(ALL_CPPFLAGS) -O2 -pedantic-errors -Werror
+ALL_CXXFLAGS += $(CXXFLAGS) $(ALL_CPPFLAGS) -O2 -pedantic-errors -Werror
 ALL_LDFLAGS += $(LDFLAGS) -s
 
 else ifeq ($(config),debug)
 OBJDIR = build/obj/debug/debug/CppUTest
 DEFINES += -DDEBUG -DCPPUTEST_USE_LONG_LONG=0
-ALL_CFLAGS += $(CFLAGS) $(ALL_CPPFLAGS) -g
-ALL_CXXFLAGS += $(CXXFLAGS) $(ALL_CPPFLAGS) -g
+ALL_CFLAGS += $(CFLAGS) $(ALL_CPPFLAGS) -g -pedantic-errors -Werror
+ALL_CXXFLAGS += $(CXXFLAGS) $(ALL_CPPFLAGS) -g -pedantic-errors -Werror
 ALL_LDFLAGS += $(LDFLAGS)
 
 endif
@@ -164,64 +164,64 @@ endif
 # File Rules
 # #############################################
 
-$(OBJDIR)/CommandLineArguments.o: CppUTest/src/CppUTest/CommandLineArguments.cpp
+$(OBJDIR)/CommandLineArguments.o: cpputest/src/CppUTest/CommandLineArguments.cpp
 	@echo "$(notdir $<)"
 	$(SILENT) $(CXX) $(ALL_CXXFLAGS) $(FORCE_INCLUDE) -o "$@" -MF "$(@:%.o=%.d)" -c "$<"
-$(OBJDIR)/CommandLineTestRunner.o: CppUTest/src/CppUTest/CommandLineTestRunner.cpp
+$(OBJDIR)/CommandLineTestRunner.o: cpputest/src/CppUTest/CommandLineTestRunner.cpp
 	@echo "$(notdir $<)"
 	$(SILENT) $(CXX) $(ALL_CXXFLAGS) $(FORCE_INCLUDE) -o "$@" -MF "$(@:%.o=%.d)" -c "$<"
-$(OBJDIR)/JUnitTestOutput.o: CppUTest/src/CppUTest/JUnitTestOutput.cpp
+$(OBJDIR)/JUnitTestOutput.o: cpputest/src/CppUTest/JUnitTestOutput.cpp
 	@echo "$(notdir $<)"
 	$(SILENT) $(CXX) $(ALL_CXXFLAGS) $(FORCE_INCLUDE) -o "$@" -MF "$(@:%.o=%.d)" -c "$<"
-$(OBJDIR)/MemoryLeakDetector.o: CppUTest/src/CppUTest/MemoryLeakDetector.cpp
+$(OBJDIR)/MemoryLeakDetector.o: cpputest/src/CppUTest/MemoryLeakDetector.cpp
 	@echo "$(notdir $<)"
 	$(SILENT) $(CXX) $(ALL_CXXFLAGS) $(FORCE_INCLUDE) -o "$@" -MF "$(@:%.o=%.d)" -c "$<"
-$(OBJDIR)/MemoryLeakWarningPlugin.o: CppUTest/src/CppUTest/MemoryLeakWarningPlugin.cpp
+$(OBJDIR)/MemoryLeakWarningPlugin.o: cpputest/src/CppUTest/MemoryLeakWarningPlugin.cpp
 	@echo "$(notdir $<)"
 	$(SILENT) $(CXX) $(ALL_CXXFLAGS) $(FORCE_INCLUDE) -o "$@" -MF "$(@:%.o=%.d)" -c "$<"
-$(OBJDIR)/SimpleMutex.o: CppUTest/src/CppUTest/SimpleMutex.cpp
+$(OBJDIR)/SimpleMutex.o: cpputest/src/CppUTest/SimpleMutex.cpp
 	@echo "$(notdir $<)"
 	$(SILENT) $(CXX) $(ALL_CXXFLAGS) $(FORCE_INCLUDE) -o "$@" -MF "$(@:%.o=%.d)" -c "$<"
-$(OBJDIR)/SimpleString.o: CppUTest/src/CppUTest/SimpleString.cpp
+$(OBJDIR)/SimpleString.o: cpputest/src/CppUTest/SimpleString.cpp
 	@echo "$(notdir $<)"
 	$(SILENT) $(CXX) $(ALL_CXXFLAGS) $(FORCE_INCLUDE) -o "$@" -MF "$(@:%.o=%.d)" -c "$<"
-$(OBJDIR)/SimpleStringInternalCache.o: CppUTest/src/CppUTest/SimpleStringInternalCache.cpp
+$(OBJDIR)/SimpleStringInternalCache.o: cpputest/src/CppUTest/SimpleStringInternalCache.cpp
 	@echo "$(notdir $<)"
 	$(SILENT) $(CXX) $(ALL_CXXFLAGS) $(FORCE_INCLUDE) -o "$@" -MF "$(@:%.o=%.d)" -c "$<"
-$(OBJDIR)/TeamCityTestOutput.o: CppUTest/src/CppUTest/TeamCityTestOutput.cpp
+$(OBJDIR)/TeamCityTestOutput.o: cpputest/src/CppUTest/TeamCityTestOutput.cpp
 	@echo "$(notdir $<)"
 	$(SILENT) $(CXX) $(ALL_CXXFLAGS) $(FORCE_INCLUDE) -o "$@" -MF "$(@:%.o=%.d)" -c "$<"
-$(OBJDIR)/TestFailure.o: CppUTest/src/CppUTest/TestFailure.cpp
+$(OBJDIR)/TestFailure.o: cpputest/src/CppUTest/TestFailure.cpp
 	@echo "$(notdir $<)"
 	$(SILENT) $(CXX) $(ALL_CXXFLAGS) $(FORCE_INCLUDE) -o "$@" -MF "$(@:%.o=%.d)" -c "$<"
-$(OBJDIR)/TestFilter.o: CppUTest/src/CppUTest/TestFilter.cpp
+$(OBJDIR)/TestFilter.o: cpputest/src/CppUTest/TestFilter.cpp
 	@echo "$(notdir $<)"
 	$(SILENT) $(CXX) $(ALL_CXXFLAGS) $(FORCE_INCLUDE) -o "$@" -MF "$(@:%.o=%.d)" -c "$<"
-$(OBJDIR)/TestHarness_c.o: CppUTest/src/CppUTest/TestHarness_c.cpp
+$(OBJDIR)/TestHarness_c.o: cpputest/src/CppUTest/TestHarness_c.cpp
 	@echo "$(notdir $<)"
 	$(SILENT) $(CXX) $(ALL_CXXFLAGS) $(FORCE_INCLUDE) -o "$@" -MF "$(@:%.o=%.d)" -c "$<"
-$(OBJDIR)/TestMemoryAllocator.o: CppUTest/src/CppUTest/TestMemoryAllocator.cpp
+$(OBJDIR)/TestMemoryAllocator.o: cpputest/src/CppUTest/TestMemoryAllocator.cpp
 	@echo "$(notdir $<)"
 	$(SILENT) $(CXX) $(ALL_CXXFLAGS) $(FORCE_INCLUDE) -o "$@" -MF "$(@:%.o=%.d)" -c "$<"
-$(OBJDIR)/TestOutput.o: CppUTest/src/CppUTest/TestOutput.cpp
+$(OBJDIR)/TestOutput.o: cpputest/src/CppUTest/TestOutput.cpp
 	@echo "$(notdir $<)"
 	$(SILENT) $(CXX) $(ALL_CXXFLAGS) $(FORCE_INCLUDE) -o "$@" -MF "$(@:%.o=%.d)" -c "$<"
-$(OBJDIR)/TestPlugin.o: CppUTest/src/CppUTest/TestPlugin.cpp
+$(OBJDIR)/TestPlugin.o: cpputest/src/CppUTest/TestPlugin.cpp
 	@echo "$(notdir $<)"
 	$(SILENT) $(CXX) $(ALL_CXXFLAGS) $(FORCE_INCLUDE) -o "$@" -MF "$(@:%.o=%.d)" -c "$<"
-$(OBJDIR)/TestRegistry.o: CppUTest/src/CppUTest/TestRegistry.cpp
+$(OBJDIR)/TestRegistry.o: cpputest/src/CppUTest/TestRegistry.cpp
 	@echo "$(notdir $<)"
 	$(SILENT) $(CXX) $(ALL_CXXFLAGS) $(FORCE_INCLUDE) -o "$@" -MF "$(@:%.o=%.d)" -c "$<"
-$(OBJDIR)/TestResult.o: CppUTest/src/CppUTest/TestResult.cpp
+$(OBJDIR)/TestResult.o: cpputest/src/CppUTest/TestResult.cpp
 	@echo "$(notdir $<)"
 	$(SILENT) $(CXX) $(ALL_CXXFLAGS) $(FORCE_INCLUDE) -o "$@" -MF "$(@:%.o=%.d)" -c "$<"
-$(OBJDIR)/TestTestingFixture.o: CppUTest/src/CppUTest/TestTestingFixture.cpp
+$(OBJDIR)/TestTestingFixture.o: cpputest/src/CppUTest/TestTestingFixture.cpp
 	@echo "$(notdir $<)"
 	$(SILENT) $(CXX) $(ALL_CXXFLAGS) $(FORCE_INCLUDE) -o "$@" -MF "$(@:%.o=%.d)" -c "$<"
-$(OBJDIR)/Utest.o: CppUTest/src/CppUTest/Utest.cpp
+$(OBJDIR)/Utest.o: cpputest/src/CppUTest/Utest.cpp
 	@echo "$(notdir $<)"
 	$(SILENT) $(CXX) $(ALL_CXXFLAGS) $(FORCE_INCLUDE) -o "$@" -MF "$(@:%.o=%.d)" -c "$<"
-$(OBJDIR)/UtestPlatform.o: CppUTest/src/Platforms/Gcc/UtestPlatform.cpp
+$(OBJDIR)/UtestPlatform.o: cpputest/src/Platforms/Gcc/UtestPlatform.cpp
 	@echo "$(notdir $<)"
 	$(SILENT) $(CXX) $(ALL_CXXFLAGS) $(FORCE_INCLUDE) -o "$@" -MF "$(@:%.o=%.d)" -c "$<"
 
